@@ -1,0 +1,7 @@
+js-bson: Failed to load c++ bson extension, using pure JS version
+Wed, 15 Nov 2017 07:03:29 GMT express-session deprecated undefined resave option; provide resave option at app.js:14:9
+Wed, 15 Nov 2017 07:03:29 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:14:9
+js-bson: Failed to load c++ bson extension, using pure JS version
+Wed, 15 Nov 2017 07:04:18 GMT express-session deprecated undefined resave option; provide resave option at app.js:14:9
+Wed, 15 Nov 2017 07:04:18 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:14:9
+Wed, 15 Nov 2017 07:04:50 GMT express deprecated res.send(status): Use res.sendStatus(status) instead at routes/login.js:19:24
