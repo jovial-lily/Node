@@ -2,9 +2,8 @@ module.exports = function ( app ) {
     app.get('/home', function (req, res) {
         if(req.session.user){
             var Commodity = global.dbHelper.getModel('commodity');
-			var UserName = req.session.user.name;
             Commodity.find({}, function (error, docs) {
-                res.render('home',{Commoditys:docs});
+                res.render('home',{Commoditys:docs,LoginUser:req.session.user});
             });
         }else{
             req.session.error = "请先登录"
