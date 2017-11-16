@@ -99,7 +99,8 @@ app.get('/getuserinfo', function (req, res) {
 			       "msg":msg
 			   };
 				console.log(response);
-				res.end(JSON.stringify(response),"utf-8");
+				//res.end(JSON.stringify(response));
+				res.end(JSON.stringify(doc));
 
         });
  
