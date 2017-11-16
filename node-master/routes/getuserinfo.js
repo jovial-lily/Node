@@ -3,7 +3,7 @@ module.exports = function ( app ) {
        // res.render('getuserinfo');
    // });
 
-    app.get('/getuserinfo', function (req, res) {
+    app.post('/getuserinfo', function (req, res) {
         var User = global.dbHelper.getModel('user'),
             uname = req.body.uname;
         User.findOne({name: uname}, function (error, doc) {
