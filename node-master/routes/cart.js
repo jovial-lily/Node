@@ -78,5 +78,15 @@ module.exports = function ( app ) {
     });
 
 
+app.get('/getuserinfo', function (req, res) {
+ 
+   // 输出 JSON 格式
+   var response = {
+       "username":req.query.username,
+       "userpwd":req.query.userpwd
+   };
+	console.log(response);
+	res.end(JSON.stringify(response));
+	});
 }
 
