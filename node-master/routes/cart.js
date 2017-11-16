@@ -79,14 +79,30 @@ module.exports = function ( app ) {
 
 
 app.get('/getuserinfo', function (req, res) {
+	var User = global.dbHelper.getModel('user'),
+            uname = req.body.uname;
+	var code,msg;
+
+        User.findOne({name: uname}, function (error, doc) {
+            if (error) {
+                code = 500;
+                msg = "存在数据库";
+            } else if (!doc) {
+				code = 404;
+                msg = "用户名不存在！";
+               
+            } 
+			// 输出 JSON 格式
+			   var response = {
+				   "code":code,
+			       "uname":uname,
+			       "msg":msg
+			   };
+				console.log(response);
+				res.end(JSON.stringify(response));
+
+        });
  
-   // 输出 JSON 格式
-   var response = {
-       "username":req.query.username,
-       "userpwd":req.query.userpwd
-   };
-	console.log(response);
-	res.end(JSON.stringify(response));
 	});
 }
 
