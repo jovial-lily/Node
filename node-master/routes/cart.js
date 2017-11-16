@@ -80,7 +80,7 @@ module.exports = function ( app ) {
 
 app.get('/getuserinfo', function (req, res) {
 	var User = global.dbHelper.getModel('user'),
-            uname = req.body.username;
+            uname = req.body.uname;
 	var code,msg;
 
         User.findOne({name: uname}, function (error, doc) {
@@ -99,8 +99,7 @@ app.get('/getuserinfo', function (req, res) {
 			       "msg":msg
 			   };
 				console.log(response);
-				//res.end(JSON.stringify(response));
-				res.end(JSON.stringify(doc));
+				res.end(JSON.stringify(response),'utf-8');
 
         });
  
