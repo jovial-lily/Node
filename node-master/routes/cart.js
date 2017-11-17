@@ -84,6 +84,17 @@ module.exports = function ( app ) {
         });
     });
 
+ //购物车商品数量增减
+    app.post("/goodsnum/:id",function(req,res){
+        var Cart = global.dbHelper.getModel('cart');
+        Cart.update({"_id":req.params.id},{$set : { cQuantity : req.body.cnum}},function(error,doc){
+            //更新成功返回1  失败返回0
+            if(doc > 0){
+                res.send(200);
+            }
+        });
+		
+    });
 
 app.get('/getuserinfo', function (req, res) {
 	var User = global.dbHelper.getModel('user'),
