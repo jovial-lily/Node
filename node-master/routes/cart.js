@@ -66,6 +66,20 @@ module.exports = function ( app ) {
         });
     });
 
+	 //购物车商品数量增减
+    app.get("/goodsnum/:id",function(req,res){
+        var Cart = global.dbHelper.getModel('cart');
+        Cart.update({"_id":req.params.id},{$set : { cQuantity : req.body.cnum}},function(error,doc){
+            //更新成功返回1  失败返回0
+            if(doc > 0){
+                 res.redirect('/cart');
+            }else{
+				console.log("增减失败");
+			}
+        });
+		
+    });
+
     //购物车结算
     app.post("/cart/clearing",function(req,res){
         //var Cart = global.dbHelper.getModel('cart');
@@ -84,17 +98,7 @@ module.exports = function ( app ) {
         });
     });
 
- //购物车商品数量增减
-    app.get("/goodsnum/:id",function(req,res){
-        var Cart = global.dbHelper.getModel('cart');
-        Cart.update({"_id":req.params.id},{$set : { cQuantity : req.body.cnum}},function(error,doc){
-            //更新成功返回1  失败返回0
-            if(doc > 0){
-                 res.redirect('/cart');
-            }
-        });
-		
-    });
+
 
 app.get('/getuserinfo', function (req, res) {
 	var User = global.dbHelper.getModel('user'),
