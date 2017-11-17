@@ -11,8 +11,11 @@
     </style>
     <script type="text/javascript">
         function addcommodity(){
-                var name = $('#cname').val(), price = $('#cprice').val();
-                var data = { "name": name, price:price,"imgSrc": "xmsz-"+Math.floor(Math.random()*5+1)+".jpg"};
+                var name = $('#cname').val(), price = $('#cprice').val(),imgsrc = $('#cimgsrc').val()+".jpg";
+				if(!imgsrc){
+					imgsrc = "xmsz-"+Math.floor(Math.random()*5+1)+".jpg";
+				}
+                var data = { "name": name, price:price,"imgSrc": imgsrc};
                 $.ajax({
                     url:'/addcommodity',
                     type:'POST',
@@ -36,6 +39,7 @@
     <form action="#"  role="form" method="post" >
         <input style="margin-top: 30px;" id="cname" type="text" class="form-control"  name="cname" placeholder="商品名称" />
         <input style="margin-top: 30px;" id="cprice"  class="form-control" name="cprice"  placeholder="商品价格" />
+		<input style="margin-top: 30px;" id="cimgsrc"  class="form-control" name="cimgsrc"  placeholder="商品图片" />
         <input style="margin-top: 30px;" type="button" class="btn btn-success btn-block" onclick="addcommodity()" value="添 加" />
     </form>
 </div>
