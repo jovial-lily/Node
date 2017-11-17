@@ -67,7 +67,7 @@ module.exports = function ( app ) {
     });
 
 	 //购物车商品数量增减
-    app.get("/goodsnum/:id",function(req,res){
+    app.post("/cart/goodsnum",function(req,res){
         var Cart = global.dbHelper.getModel('cart');
         Cart.update({"_id":req.params.id},{$set : { cQuantity : req.body.cnum}},function(error,doc){
             //更新成功返回1  失败返回0
