@@ -76,7 +76,7 @@ module.exports = function ( app ) {
       //      }
       //  });
 		 var Cart = global.dbHelper.getModel('cart');
-        Cart.remove({"_id":req.params.id},function(error,doc){
+        Cart.remove({},function(error,doc){
             //成功返回1  失败返回0
             if(doc > 0){
                 res.redirect('/cart');
