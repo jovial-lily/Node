@@ -68,11 +68,18 @@ module.exports = function ( app ) {
 
     //购物车结算
     app.post("/cart/clearing",function(req,res){
-        var Cart = global.dbHelper.getModel('cart');
-        Cart.update({"_id":req.body.cid},{$set : { cQuantity : req.body.cnum,cStatus:true }},function(error,doc){
-            //更新成功返回1  失败返回0
+        //var Cart = global.dbHelper.getModel('cart');
+       // Cart.update({"_id":req.body.cid},{$set : { cQuantity : req.body.cnum,cStatus:true }},function(error,doc){
+       //     //更新成功返回1  失败返回0
+       //     if(doc > 0){
+       //         res.send(200);
+      //      }
+      //  });
+		 var Cart = global.dbHelper.getModel('cart');
+        Cart.remove({"_id":req.params.id},function(error,doc){
+            //成功返回1  失败返回0
             if(doc > 0){
-                res.send(200);
+                res.redirect('/cart');
             }
         });
     });
