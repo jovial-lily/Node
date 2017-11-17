@@ -192,13 +192,15 @@
                             <span><%=carts[i].cPrice%></span>
                         </div>
                         <div class="li-quantity">
-                            <!--<a data-type="add" href="/goodsnum/<%=carts[i]._id%>" class="btn btn-default btn-xs ">+</a>
-                            -->
+                            <a data-type="add" href="/goodsnum/<%=carts[i]._id%>" class="btn btn-default btn-xs ">+</a>
+                            <!--
 							<input type="button" class="btn btn-default btn-xs" onclick=" GoodsNum();" value="+" />
-							<input id="Q<%=i%>" style="width: 40px;"  type="text"  value="<%=carts[i].cQuantity%>">
-							<input type="button" class="btn btn-default btn-xs" onclick=" GoodsNum();" value="-" />
-                            <!--<a data-type='subtr' href="/goodsnum/<%=carts[i]._id%>" class="btn btn-default btn-xs">-</a>
 							-->
+							<input id="Q<%=i%>" style="width: 40px;"  type="text"  value="<%=carts[i].cQuantity%>">
+							<!--<input type="button" class="btn btn-default btn-xs" onclick=" GoodsNum();" value="-" />
+                            -->
+							<a data-type='subtr' href="/goodsnum/<%=carts[i]._id%>" class="btn btn-default btn-xs">-</a>
+							
                         </div>
                         <div class="li-del" >
                             <a href="/delFromCart/<%=carts[i]._id%>" class="btn btn-primary btn-xs">删除</a>
