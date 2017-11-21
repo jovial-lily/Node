@@ -21,7 +21,7 @@ module.exports = function ( app ) {
             imgSrc: req.body.imgSrc
         }, function (error, doc) {
             if (doc) {
-                res.send(doc,200);
+                res.send(doc.toString(),200);
             }else{
                 res.send(404);
             }
